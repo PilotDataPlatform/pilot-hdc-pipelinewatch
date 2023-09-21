@@ -9,7 +9,7 @@ python = "^3.7"
 pilot-platform-common = "0.1.0"
 python-json-logger = "2.0.2"
 kubernetes = "11.0.0"
-requests = "2.24.0"
+requests = "2.31.0"
 pydantic = "1.8.2"
 
 [tool.poetry.dev-dependencies]

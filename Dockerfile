@@ -1,9 +1,4 @@
-FROM python:3.7-buster
-RUN groupadd --gid 1004 deploy && \
-    useradd --home-dir /home/deploy \
-            --create-home --uid 1004 \
-            --gid 1004 --shell /bin/sh \
-            --skel /dev/null deploy
+FROM docker-registry.ebrains.eu/hdc-services-image/base-image:python-3.10.14-v1 AS pipelinewatch-image
 
 ENV PYTHONDONTWRITEBYTECODE=true \
     PYTHONIOENCODING=UTF-8 \
@@ -15,15 +10,15 @@ ENV PATH="${POETRY_HOME}/bin:${PATH}"
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-WORKDIR /home/deploy
 COPY .  ./
 
 RUN poetry install --no-dev --no-root --no-interaction
 
-RUN chown -R deploy:deploy /home/deploy
-USER deploy
-RUN chmod +x /home/deploy/worker_k8s_job_watch.py
+RUN chown -R app:app /app
+USER app
 
-ENV PATH="/home/deploy/.local/bin:${PATH}"
+RUN chmod +x /app/worker_k8s_job_watch.py
 
-CMD ["/home/deploy/worker_k8s_job_watch.py"]
+ENV PATH="/app/.local/bin:${PATH}"
+
+CMD ["/app/worker_k8s_job_watch.py"]

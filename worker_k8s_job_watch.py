@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022-2023 Indoc Systems
+# Copyright (C) 2022-Present Indoc Systems
 #
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
+from common import configure_logging
 from kubernetes import client
 from kubernetes import config
 from kubernetes.config import ConfigException
@@ -29,6 +31,7 @@ def main():
     k8s_configurations = k8s_init()
     batch_api_instance = get_k8s_batchapi(k8s_configurations)
     settings = get_settings()
+    configure_logging(settings.LOGGING_LEVEL, settings.LOGGING_FORMAT)
     stream_watch = StreamWatcher(batch_api_instance, settings)
     stream_watch.run()
 

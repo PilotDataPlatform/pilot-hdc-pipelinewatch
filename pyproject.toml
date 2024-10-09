@@ -1,13 +1,12 @@
 [tool.poetry]
 name = "pipelinewatch"
-version = "2.0.0"
+version = "2.2.4"
 description = ""
 authors = ["Indoc Research"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pilot-platform-common = "0.1.0"
-python-json-logger = "2.0.2"
+pilot-platform-common = "0.3.0"
 kubernetes = "11.0.0"
 requests = "2.24.0"
 pydantic = "1.8.2"

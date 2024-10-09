@@ -1,11 +1,11 @@
-# Copyright (C) 2022-2023 Indoc Systems
+# Copyright (C) 2022-Present Indoc Systems
 #
-# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
+# Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE,
+# Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
+import logging
 from functools import lru_cache
-from logging import ERROR
-from logging import WARN
 from typing import Any
 from typing import Dict
 from typing import Optional
@@ -51,10 +51,8 @@ class Settings(BaseSettings):
     GREEN_ZONE_LABEL: str = 'Greenroom'
     CORE_ZONE_LABEL: str = 'Core'
 
-    LOG_LEVEL_DEFAULT = WARN
-    LOG_LEVEL_FILE = WARN
-    LOG_LEVEL_STDOUT = WARN
-    LOG_LEVEL_STDERR = ERROR
+    LOGGING_LEVEL: int = logging.INFO
+    LOGGING_FORMAT: str = 'json'
 
     class Config:
         env_file = '.env'

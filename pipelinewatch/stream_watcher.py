@@ -4,9 +4,9 @@
 # Version 3.0 (the "License") available at https://www.gnu.org/licenses/agpl-3.0.en.html.
 # You may not use this file except in compliance with the License.
 
+from collections.abc import Generator
 from enum import Enum
 from enum import unique
-from typing import Generator
 
 from kubernetes import watch
 from kubernetes.client import BatchV1Api

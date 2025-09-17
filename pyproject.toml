@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pipelinewatch"
-version = "2.2.4"
+version = "2.2.7"
 description = ""
 authors = ["Indoc Research"]
 
@@ -9,7 +9,7 @@ python = "^3.7"
 pilot-platform-common = "0.3.0"
 kubernetes = "11.0.0"
 requests = "2.24.0"
-pydantic = "1.8.2"
+pydantic = "1.10.19"
 
 [tool.poetry.dev-dependencies]
 pytest = "7.1.1"

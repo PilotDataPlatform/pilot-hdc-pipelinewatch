@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pipelinewatch"
-version = "2.2.7"
+version = "2.2.8"
 description = ""
 authors = ["Indoc Research"]
 
